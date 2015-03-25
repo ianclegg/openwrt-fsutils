@@ -193,7 +193,9 @@ static int probe_ntfs(blkid_probe pr, const struct blkid_idmag *mag)
 			unsigned int val_len = le32_to_cpu(attr->value_len);
 			unsigned char *val = ((uint8_t *) attr) + val_off;
 
-			blkid_probe_set_utf8label(pr, val, val_len, BLKID_ENC_UTF16LE);
+            /* iclegg: no utf-8 support in this 'tiny' version
+               non ASCII labels will be corrupted... ouch */
+			blkid_probe_set_label(pr, val, min(val_len, 30));
 			break;
 		}
 

@@ -119,8 +119,9 @@ static int probe_exfat(blkid_probe pr, const struct blkid_idmag *mag)
 
 	label = find_label(pr, sb);
 	if (label)
-		blkid_probe_set_utf8label(pr, label->name,
-				min(label->length * 2, 30), BLKID_ENC_UTF16LE);
+        /* iclegg: no utf-8 support in this 'tiny' version
+           non ASCII labels will be corrupted... ouch */
+		blkid_probe_set_label(pr, label->name, min(label->length, 30));
 
 	blkid_probe_sprintf_uuid(pr, sb->volume_serial, 4,
 			"%02hhX%02hhX-%02hhX%02hhX",
