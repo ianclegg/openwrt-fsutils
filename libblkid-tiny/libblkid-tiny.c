@@ -155,6 +155,8 @@ int blkid_probe_sprintf_uuid(blkid_probe pr, unsigned char *uuid,
 static const struct blkid_idinfo *idinfos[] =
 {
 	&vfat_idinfo,
+    &exfat_idinfo,
+    &ntfs_idinfo,
 	&swsuspend_idinfo,
 	&swap_idinfo,
 	&ext4dev_idinfo,

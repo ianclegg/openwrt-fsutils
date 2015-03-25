@@ -21,6 +21,8 @@ ADD_LIBRARY(blkid-tiny SHARED
 		libblkid-tiny/libblkid-tiny.c
 		libblkid-tiny/mkdev.c
 		libblkid-tiny/ext.c
+		libblkid-tiny/exfat.c
+		libblkid-tiny/ntfs.c
 		libblkid-tiny/jffs2.c
 		libblkid-tiny/vfat.c
 		libblkid-tiny/hfs.c
